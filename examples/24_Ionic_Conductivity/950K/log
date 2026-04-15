@@ -21,7 +21,7 @@ number of GPUs = 1
 Device id:                   0
     Device name:             NVIDIA GeForce RTX 3080
     Compute capability:      8.6
-    Amount of global memory: 9.77484 GB
+    Amount of global memory: 9.76801 GB
     Number of SMs:           68
 
 ---------------------------------------------------------------
@@ -38,13 +38,13 @@ Use periodic boundary conditions along x.
 Use periodic boundary conditions along y.
 Use periodic boundary conditions along z.
 Box matrix h = [a, b, c] is
-    5.2622100000e+01    0.0000000000e+00    0.0000000000e+00
-    0.0000000000e+00    5.2492600000e+01    0.0000000000e+00
-    0.0000000000e+00    0.0000000000e+00    5.2769600000e+01
+    5.2642600000e+01    0.0000000000e+00    0.0000000000e+00
+    0.0000000000e+00    5.1949100000e+01    0.0000000000e+00
+    0.0000000000e+00    0.0000000000e+00    5.2456500000e+01
 Inverse box matrix g = inv(h) is
-    1.9003422516e-02    0.0000000000e+00    0.0000000000e+00
-    0.0000000000e+00    1.9050304233e-02    0.0000000000e+00
-    0.0000000000e+00    0.0000000000e+00    1.8950304721e-02
+    1.8996022233e-02    0.0000000000e+00    0.0000000000e+00
+    0.0000000000e+00    1.9249611639e-02    0.0000000000e+00
+    0.0000000000e+00    0.0000000000e+00    1.9063414448e-02
 Specify initial velocities here.
 Have 1 grouping method(s).
 There are 4 groups of atoms in grouping method 0.
@@ -92,7 +92,7 @@ Use the NEP4 potential with 4 atom types.
     total number of parameters = 5281.
 Use Nose-Hoover thermostat and Parrinello-Rahman barostat.
 Use NPT ensemble for this run.
-Thermostat: t_start is 1200.000000, t_stop is 1200.000000, t_period is 100.000000 timesteps
+Thermostat: t_start is 950.000000, t_stop is 950.000000, t_period is 100.000000 timesteps
 xx : p_start is 0.000000, p_stop is 0.000000, p_period is 1000.000000 timesteps
 xy will not be changed.
 xz will not be changed.
@@ -123,8 +123,8 @@ MTTK initializing...
     1000000 steps completed.
 
 ---------------------------------------------------------------
-Time used for this run = 1789.49 second.
-Speed of this run = 6.86678e+06 atom*step/second.
+Time used for this run = 1864.75 second.
+Speed of this run = 6.58964e+06 atom*step/second.
 ---------------------------------------------------------------
 
 
@@ -134,7 +134,7 @@ Finished executing the commands in run.in.
 
 
 ---------------------------------------------------------------
-Time used = 1789.726829 s.
+Time used = 1865.027341 s.
 ---------------------------------------------------------------
 
 
