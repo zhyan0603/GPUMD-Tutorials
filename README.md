@@ -1,8 +1,14 @@
 # GPUMD-Tutorials
 This repo contains various tutorials and examples using the [GPUMD package](https://github.com/brucefan1983/GPUMD) and related tools.
 
-## List of examples
+## Benchmark examples
 
+| folder                                     | creator       | description                                        |
+| ---------------------------------------    | ------------- | ---------------------------------------------------|
+| [benchmark/01_CuMoTaVW](benchmark/01_CuMoTaVW)      | Rui Zhao | polycrystalline CuMoTaVW alloy with NEP89 model  |
+
+
+## Tutorial examples
 
 | folder                                     | creator       | description                                        |
 | ---------------------------------------    | ------------- | ---------------------------------------------------|
@@ -11,7 +17,7 @@ This repo contains various tutorials and examples using the [GPUMD package](http
 | [03_Carbon_thermal_transport_emd](examples/03_Carbon_thermal_transport_emd)            | Zheyong Fan  | Thermal transport in graphene from EMD |
 | [04_Carbon_thermal_transport_nemd_and_hnemd](examples/04_Carbon_thermal_transport_nemd_and_hnemd) | Zheyong Fan  | Thermal transport in graphene from NEMD and NEMD |
 | [05_Carbon_phonon_vibration_viewer](examples/05_Carbon_phonon_vibration_viewer)          | Ting Liang    | Visualizing the phonon modes in a type of diamond nanowire. |
-| [06_Silicon_phonon_dispersion](examples/06_Silicon_phonon_dispersion)               | Zheyong Fan    | Phonon dispersions of silicon.  |
+| [06_Silicon_phonon_dispersion](examples/06_Silicon_phonon_dispersion)               | Benrui Tang     | Phonon dispersions of silicon.  |
 | [07_Silicon_thermal_expansion](examples/07_Silicon_thermal_expansion)               | Zheyong Fan      | Thermal expansion of silicon based on classical MD. |
 | [08_Silicon_melt](examples/08_Silicon_melt)                            | Zheyong Fan   |  Melting point of silicon from two-phase method. |
 | [09_Silicon_diffusion](examples/09_Silicon_diffusion)                      | Zheyong Fan   |  Diffusion coefficient of liquid silicon from VAC and MSD. |
@@ -29,46 +35,11 @@ This repo contains various tutorials and examples using the [GPUMD package](http
 | [21_Fatigue](examples/21_Fatigue)        | Rui Zhao        | Fatigue simulation |
 | [22_Gas_Solid](examples/22_Gas_Solid)        | Shuo Zhang        | Gas-Solid simulation |
 | [23_Surface_Reconstruction](examples/23_Surface_Reconstruction)        | Cheng Qian        | Pt surface reconstruction simulation |
-| [24 Ionic Conductivity](examples/24_Ionic_Conductivity) | Zihan Yan | Ionic conductivity of cubic Li<sub>7</sub>La<sub>3</sub>Zr<sub>2</sub>O<sub>12</sub> |
-
-
-
-## How to run the examples?
-
-* First, compile the GPUMD package by typing `make` in `src/`. You will get the executables `gpumd` and `nep` in `src/`.
-
-* Then, go to the directory of an example and type one of the following commands:
-  * `path/to/gpumd`
-  * `path/to/nep`
-  
-* By default, the `nep` executable will use all the visible GPUs in the system. 
-This is also the case for the `gpumd` executable when using a NEP model.
-The visible GPU(s) can be set by the following command before running the code:
-```
-export CUDA_VISIBLE_DEVICES=[list of GPU IDs]
-# examples:
-export CUDA_VISIBLE_DEVICES=0 # only use GPU with ID 0
-export CUDA_VISIBLE_DEVICES=1 # only use GPU with ID 1
-export CUDA_VISIBLE_DEVICES=0,2 # use GPUs with ID 0 and ID 2
-```
-If you are using a job scheduling system such as `slurm`, you can set something as follows
-```
-#SBATCH --gres=gpu:v100:2 # using 2 V100 GPUs
-```
-We suggest use GPUs of the same type, otherwise a fast GPU will wait for a slower one.
-The parallel efficiency of the `nep` executable is high (about 90%) unless you have a very small training data set or batch size.
-The parallel efficiency of the 	`gpumd` executable depends on the number of atoms per GPU. Good parallel efficiency requires this number to be larger than about 1e5.
-
-By default, the system is partitioned along the thickest direction, but one can overwrite this by specifying a partition direction in the following way:
-```
-potential YOUR_NEP_MODEL.txt   # use the default partition
-potential YOUR_NEP_MODEL.txt x # force to partition along the x direction (the a direction for triclinic box)
-potential YOUR_NEP_MODEL.txt y # force to partition along the y direction (the b direction for triclinic box)
-potential YOUR_NEP_MODEL.txt z # force to partition along the z direction (the c direction for triclinic box)
-```
-
-## References
-
-[1] Zheyong Fan, Yanzhou Wang, Penghua Ying, Keke Song, Junjie Wang, Yong Wang, Zezhu Zeng, Ke Xu, Eric Lindgren, J. Magnus Rahm, Alexander J. Gabourie, Jiahui Liu, Haikuan Dong, Jianyang Wu, Yue Chen, Zheng Zhong, Jian Sun, Paul Erhart, Yanjing Su, Tapio Ala-Nissila,
-[GPUMD: A package for constructing accurate machine-learned potentials and performing highly efficient atomistic simulations](https://doi.org/10.1063/5.0106617), The Journal of Chemical Physics **157**, 114801 (2022).
-
+| [24_Ionic_Conductivity](examples/24_Ionic_Conductivity) | Zihan Yan | Ionic conductivity of cubic Li<sub>7</sub>La<sub>3</sub>Zr<sub>2</sub>O<sub>12</sub> |
+| [25_lattice_dynamics_kappa](examples/25_lattice_dynamics_kappa) | Zezhu Zeng | Lattice dynamics for PbTe |
+| [26_fine_tune_NEP89](examples/26_fine_tune_NEP89) | Ting Liang | Fine-tuned NEP89 model for calculating the thermal conductivity of MoS<sub>2</sub> |
+| [27_Carbon_Cu111_deposition](examples/27_Carbon_Cu111_deposition) | Jiahui Liu | Depositing C atoms onto a relaxed Cu(111) surface. |
+| [28_thermal_transport_superionic_EMD](examples/28_thermal_transport_superionic_EMD) | Wenjiang Zhou | Thermal transport in superionic Li3PS4 using EMD. |
+| [29_thermal_transport_multicomponent_HNEMDEC](examples/29_thermal_transport_multicomponent_HNEMDEC) | Zhixin Liang | HNEMDEC method for multicomponent system. |
+| [30_Elastic_constants__strain_fluctuation_method](examples/30_Elastic_constants__strain_fluctuation_method) | Penghua Ying | Elastic constants using strain-fluctuation method. |
+| [31_Nanoribbon_friction](examples/31_Nanoribbon_friction) | Wenwu Jiang | Friction simulation for _h_-bn nanoribbon. |
