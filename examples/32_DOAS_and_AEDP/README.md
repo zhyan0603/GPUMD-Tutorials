@@ -1,5 +1,9 @@
 # DOAS and AEDP
 
+We provide a video tutorial in Chinese at Bilibili website. [Click here](https://www.bilibili.com/video/BV1wyvoBpEBJ/?spm_id_from=333.1387.homepage.video_card.click&vd_source=ad8ef768663599b5a2ed38010f8e8a73)
+
+### Background
+
 In Machine Learning Interatomic Potentials (MLIPs) such as the Neuroevolution Potential (NEP), the total potential energy of a system is formulated as the sum of individual atomistic energies. Each atomistic energy is uniquely determined by its local atomic environment.
 
 This principle allows us to extract the **Density of Atomistic States (DOAS)**, a method first proposed by Wang et al. to successfully reveal energy frustration and structural heterogeneity in superionic conductors [[1]](https://doi.org/10.1002/anie.202215544). By constructing a histogram of the atomistic energies of mobile ions (e.g., Li+), DOAS provides direct insight into the distribution of local environments and the overall energy landscape. 
